@@ -92,12 +92,14 @@
                 <option value="Savings">Saving</option>
                 <option value="Checking">Checking</option>
             </select>
+            <small class="text-red-600" *ngIf="getField('accountType') && getControl('accountType')?.hasError('required')">Account Type is required</small>
         </div>
         
         <div class="flex flex-col w-full mx-2">
             <input type="number" id="balance" name="balance" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4" formControlName="balance">
+            <small class="text-red-600" *ngIf="getField('balance') && getControl('balance')?.hasError('required')">balance is required</small>
+            <small class="text-red-600" *ngIf="getField('balance') && getControl('balance')?.hasError('pattern')">only numbers are allowed</small>
         </div>
-
         <button type="submit"
             class="border border-green-400 rounded-md shadow p-2 bg-green-400 hover:bg-green-600 text-green-900 w-full ml-auto disabled:opacity-50"
             [disabled]="isLoading || !canSubmit()"

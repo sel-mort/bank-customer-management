@@ -291,30 +291,8 @@
       "accountType": "Savings"
     },
     {
-      "firstName": "QDSD",
-      "lastName": "ffzzdd",
-      "phone": "2558774120",
-      "email": "rakalab246@naluzotan.com",
-      "gender": "female",
-      "balance": 999,
-      "accountType": "Checking",
-      "accountNumber": "5465465465",
-      "id": "jLVBe-h"
-    },
-    {
       "firstName": "ayoub",
-      "lastName": "ffzzdd",
-      "phone": "2558774120",
-      "email": "ewfewge@gmail.ewgrw",
-      "gender": "male",
-      "balance": 55555,
-      "accountNumber": 322221420,
-      "accountType": "Savings",
-      "id": "h86HcjN"
-    },
-    {
-      "firstName": "ayoub",
-      "lastName": "ffzzdd",
+      "lastName": "morachi",
       "phone": "2558774120",
       "email": "ewfewge@gmail.ewgrw",
       "gender": "male",
@@ -366,6 +344,39 @@
       "accountType": "Checking",
       "accountNumber": 594434758,
       "id": "QbfZQ5o"
+    },
+    {
+      "firstName": "amal",
+      "lastName": "saka",
+      "phone": "0666000666",
+      "email": "amal@salm.com",
+      "gender": "male",
+      "balance": 10,
+      "accountType": "Savings",
+      "accountNumber": 502812844,
+      "id": "MYUuCgM"
+    },
+    {
+      "firstName": "sarah",
+      "lastName": "mimiko",
+      "phone": "0455221178",
+      "email": "sqdsqd@kh.cc",
+      "gender": "female",
+      "balance": 1,
+      "accountType": "Checking",
+      "accountNumber": 514153125,
+      "id": "CkI3NLH"
+    },
+    {
+      "firstName": "QDSD",
+      "lastName": "lili",
+      "phone": "0688899966",
+      "email": "rakalab246@naluzotan.com",
+      "gender": "male",
+      "balance": 0,
+      "accountType": "Savings",
+      "accountNumber": 89350391,
+      "id": "-Z6RIna"
     }
   ]
 }

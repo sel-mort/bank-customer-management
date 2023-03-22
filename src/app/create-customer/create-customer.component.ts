@@ -36,7 +36,7 @@ export class CreateCustomerComponent {
         '', [Validators.required]
       ],
       balance: [
-        0, [Validators.pattern("\\d+")]
+        0, [Validators.required, Validators.pattern("\\d+")]
       ],
       accountNumber: [
         {
