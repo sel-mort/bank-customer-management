@@ -1,33 +1,106 @@
-<div class="mx-auto mt-20 flex flex-col items-center border border-gray-600s rounded-md shadow w-1/3">
-    <h1 class="text-3xl text-bold m-4 text-center">Create New Customer</h1>
-    <form action="" class="flex flex-col items-center w-full m-5 p-8">
+<div class="mx-auto mt-4 flex flex-col items-center border border-gray-600s rounded-md shadow w-1/2">
+    <h1 class="text-3xl font-bold m-4 text-center">Create New Customer</h1>
+    <form [formGroup]="customerForm" class="flex flex-col items-center w-full m-2 p-8 pt-4" (ngSubmit)="submit()">
         <div class="flex justify-center w-full mb-1">
             <div class="flex flex-col flex-initial w-1/2 mr-2">
-                <label for="firstName" class="mt-1 font-bold">First Name</label>
-                <input type="text" id="firstName" name="firstName" class="border border-gray-200 rounded-md text-lg  p-1 pl-4">
+                <label for="firstName" class="mt-1 font-bold">First Name*</label>
+                <input type="text" formControlName="firstName" id="firstName" name="firstName" class="border border-gray-200 rounded-md text-lg  p-1 pl-4">
+                <small class="text-red-600" *ngIf="getField('firstName') && getControl('firstName')?.hasError('required')">First name is required</small>
+                <small class="text-red-600" *ngIf="getField('firstName') && getControl('firstName')?.hasError('minlength')">First name must contain more than 3 caracters</small>
             </div>
-            <div class="flex flex-col flex-initial w-1/2">
-                <label for="lastName" class="mt-1 font-bold">Last Name</label>
-                <input type="text" id="lastName" name="lastName" class="border border-gray-200 rounded-md text-lg  p-1 pl-4">
-            </div>
-        </div>
 
-        <div class="flex flex-col w-full mb-1 mx-2">
-            <label for="phone" class="mt-1 font-bold">Phone Number</label>
-            <input type="text" id="phone" name="phone" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4">
+            <div class="flex flex-col flex-initial w-1/2">
+                <label for="lastName" class="mt-1 font-bold">Last Name*</label>
+                <input type="text" id="lastName" name="lastName" class="border border-gray-200 rounded-md text-lg p-1 pl-4" formControlName="lastName">
+                <small class="text-red-600" *ngIf="getField('lastName') && getControl('lastName')?.hasError('required')">Last Name is required</small>
+                <small class="text-red-600" *ngIf="getField('lastName') && getControl('lastName')?.hasError('minlength')">Last Name must contain more than 3 caracters</small>
+            </div>
         </div>
-        
-        <div class="flex flex-col w-full mb-1">
-            <label for="email" class="mt-1 font-bold">Email</label>
-            <input type="text" id="email" name="email" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4">
+        <div class="flex flex-col w-full mx-2">
+            <label for="phone" class="mt-1 font-bold">Phone*</label>
+            <input type="text" id="phone" name="phone" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4" formControlName="phone">
+            <small class="text-red-600" *ngIf="getField('phone') && getControl('phone')?.hasError('required')">Phone Number is required</small>
+            <small class="text-red-600" *ngIf="getField('phone') && getControl('phone')?.hasError('pattern')">Phone must contain more than between 3 and 10 numbers</small>
         </div>
-        
+        <div class="flex flex-col w-full">
+            <label for="email" class="mt-1 font-bold">Email*</label>
+            <input type="text" id="email" name="email" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4" formControlName="email">
+            <small class="text-red-600" *ngIf="getField('email') && getControl('email')?.hasError('required')">Email is required</small>
+            <small class="text-red-600" *ngIf="getField('email') && getControl('email')?.hasError('email')">Not a Valid Email</small>
+        </div>
+        <div class="flex items-center justify-start gap-10 w-full">
+            <h2 class="font-bold">Gender*</h2>
+            <div class="inline-flex items-center justify-center">
+                <label class="relative flex cursor-pointer items-center rounded-full p-3" for="male" data-ripple-dark="true">
+                <input
+                  id="male"
+                  name="gender"
+                  type="radio"
+                  value="male"
+                  formControlName= "gender"
+                  class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-blue-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:before:bg-blue-500 hover:before:opacity-10"
+                />
+                <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-pink-500 opacity-0 transition-opacity peer-checked:opacity-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-3.5 w-3.5"
+                    viewBox="0 0 16 16"
+                    fill="blue"
+                  >
+                    <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
+                  </svg>
+                </div>
+              </label>
+                <label class="mt-px cursor-pointer select-none font-bold text-gray-700" for="male">
+                Male
+              </label>
+            </div>
+            <div class="inline-flex items-center">
+                <label class="relative flex cursor-pointer items-center rounded-full p-3" for="female" data-ripple-dark="true">
+                <input
+                  id="female"
+                  name="gender"
+                  type="radio"
+                  value="female"
+                  formControlName="gender"
+                  class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-pink-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
+                />
+                <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-pink-500 opacity-0 transition-opacity peer-checked:opacity-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-3.5 w-3.5"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
+                  </svg>
+                </div>
+              </label>
+                <label class="mt-px cursor-pointer select-none font-bold text-gray-700" for="female">
+                Female
+              </label>
+            </div>
+            <small class="text-red-600" *ngIf="getField('gender') && getControl('gender')?.hasError('required')">Gender is required</small>
+        </div>
+        <div class="flex flex-col w-full">
+          <label for="accountNumber" class="mt-1 font-bold">accountNumber</label>
+          <input type="text" id="accountNumber" name="accountNumber" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4 cursor-not-allowed text-center font-extrabold" formControlName="accountNumber" [disabled]="true">
+        </div>
         <div class="flex flex-col w-full mb-1">
-            <label for="accountType" class="mt-1 font-bold">Account Type</label>
-            <select type="selection" id="accountType" name="accountType" class="border boder-gray-200 rounded-md text-lg mb-2 p-1 pl-4">
-                <option value="Savings">Savings</option>
+            <label for="accountType" class="mt-1 font-bold">Account Type*</label>
+            <select type="selection" id="accountType" name="accountType" class="border boder-gray-200 rounded-md text-lg mb-2 p-1 pl-4" formControlName="accountType">
+                <option value="Savings">Saving</option>
                 <option value="Checking">Checking</option>
             </select>
         </div>
+        
+        <div class="flex flex-col w-full mx-2">
+            <input type="number" id="balance" name="balance" class="border border-gray-200 rounded-md text-lg mb-2 p-1 pl-4" formControlName="balance">
+        </div>
+
+        <button type="submit"
+            class="border border-green-400 rounded-md shadow p-2 bg-green-400 hover:bg-green-600 text-green-900 w-full ml-auto disabled:opacity-50"
+            [disabled]="isLoading || !canSubmit()"
+            >{{isLoading ? 'Creation...': 'Create'}}</button>
     </form>
 </div>

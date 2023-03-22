@@ -1,17 +1,13 @@
-interface Name {
-    firstName: string;
-    lastName: string;
-};
-
 export interface Customer {
     id: number;
     accountNumber: number;
-    name: Name;
+    firstName: string;
+    lastName: string;
     gender: "Male" | "Female";
     email: string;
     phone: string;
     address: string;
-    type: "savings" | "checking";
-    balance: bigint;
+    accountType: "savings" | "checking";
+    balance: number;
     status: string;
 };

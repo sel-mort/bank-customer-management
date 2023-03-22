@@ -1,7 +1,7 @@
-<nav class="bg-gray-500">
+<nav class="bg-slate-300">
     <ul class="flex text-white justify-start">
-        <li class="p-4"><a routerLink="/">Home</a></li>
-        <li class="p-4"><a routerLink="/create">New Customer</a></li>
-        <li class="p-4"><a routerLink="/dashboard">Dashboard</a></li>
+        <li class="p-4"><a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="font-bold text-black shadow">Home</a></li>
+        <li class="p-4"><a routerLink="/create" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="font-bold text-black shadow">New Customer</a></li>
+        <li class="p-4"><a routerLink="/dashboard" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="font-bold text-black shadow">Dashboard</a></li>
     </ul>
 </nav>

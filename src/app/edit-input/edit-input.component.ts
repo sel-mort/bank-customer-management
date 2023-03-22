@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-edit-input',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-input.component.css']
 })
 export class EditInputComponent {
+  @Input() value?: string | number = '';
+  @Output() valueChange = new EventEmitter<string | number>();
 
+  public showInput = false;
+
+  onEdit() {
+    this.showInput = true;
+    this.valueChange.emit(this.value);
+  }
 }
